@@ -23,3 +23,8 @@ class PaymentFormTest(TestCase):
         form_data = {'origin_account': 1, 'dest_account': 1, 'amount': 10}
         form = PaymentForm(form_data)
         self.assertFalse(form.is_valid())
+
+    def test_invalid_form_invalid_amount(self):
+        form_data = {'origin_account': 1, 'dest_account': 2, 'amount': -10}
+        form = PaymentForm(form_data)
+        self.assertFalse(form.is_valid())
