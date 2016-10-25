@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.conf import settings
 
 from .models import Account, Transaction
 from .forms import PaymentForm
@@ -70,7 +71,7 @@ def send_notifications(transaction_details, sender_email, recipient_email):
         transaction_details.destination_account.account_number
     )
 
-    send_mail('Your transfer was successful!', mail_msg, 'fundbeam@test.com', [sender_email, recipient_email],
+    send_mail('Your transfer was successful!', mail_msg, settings.FUND_BEAM_EMAIL, [sender_email, recipient_email],
               fail_silently=False)
 
 

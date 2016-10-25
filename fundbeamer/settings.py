@@ -124,3 +124,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Use the Django Email backend rather than an SMPT server
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+FUND_BEAM_EMAIL = 'fundbeam@test.com'

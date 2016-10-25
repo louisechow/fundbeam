@@ -72,4 +72,5 @@ class ViewTests(TestCase):
 
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, [test_sender_email, test_recipient_email])
-        self.assertEquals(mail.outbox[0].subject, 'Your transfer was successful!')
+        self.assertEqual(mail.outbox[0].subject, 'Your transfer was successful!')
+        self.assertEqual(mail.outbox[0].from_email, 'fundbeam@test.com')
