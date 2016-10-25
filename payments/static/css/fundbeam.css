@@ -1,3 +1,6 @@
+/**************
+ Header Styles
+***************/
 .header {
     background-color: #2ECC40;
     margin-top: 0;
@@ -10,6 +13,10 @@
     text-decoration: none;
 
 }
+
+/*****************
+ Navigation Styles
+******************/
 
 ul.nav-menu {
     list-style-type:none;
@@ -37,23 +44,62 @@ ul.nav-menu li a:hover {
     background-color: #333;
 }
 
+/*************
+ Table styles
+**************/
+
 .table{
-  display:table;
-  width:80%;
-  margin-left: auto;
-  margin-right: auto;
-  border:1px solid  #666666;
-  border-spacing:5px;/*cellspacing:poor IE support for  this*/
+    display:table;
+    border:1px solid  #666666;
+    border-spacing:5px;
 }
 
 .table-row{
-  display:table-row;
-  width:auto;
-  clear:both;
+    display:table-row;
+    width:auto;
+    clear:both;
 }
 
 .table-col{
-  float:left;/*fix for  buggy browsers*/
-  display:table-column;
-  width:200px;
+    float:left;
+    display:table-column;
+    width:200px;
+}
+
+.account-table {
+    margin: 30px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*************
+ Messages
+**************/
+
+ul.messages {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    list-style-type: none;
+    color: #006400
+}
+
+ul.errorlist {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    list-style-type: none;
+    color: #ff0000;
+}
+
+/*************
+ Forms
+**************/
+
+#payment-form {
+    margin: 30px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }

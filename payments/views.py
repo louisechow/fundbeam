@@ -5,8 +5,6 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
-from common.utils import utils
-
 from .models import Account, Transaction
 from .forms import PaymentForm
 
@@ -40,20 +38,20 @@ def make_payment(request):
             transaction_step_list = []
 
             origin_account = Account.objects.get(pk=form_data['origin_account'])
-            origin_account.balance = origin_account.balance - form_data['amount']
-            transaction_step_list.append(origin_account)
-
             dest_account = Account.objects.get(pk=form_data['dest_account'])
-            dest_account.balance = dest_account.balance + form_data['amount']
-            transaction_step_list.append(dest_account)
+            transaction_amount = form_data['amount']
 
+            origin_account.debit_balance(transaction_amount)
+            dest_account.credit_balance(transaction_amount)
             new_transaction = Transaction(origin_account=origin_account,
-                                          destination_account=dest_account, amount=form_data['amount'],
-                                          transaction_type='C')
+                                          destination_account=dest_account, amount=form_data['amount'])
+
+            transaction_step_list.append(origin_account)
+            transaction_step_list.append(dest_account)
             transaction_step_list.append(new_transaction)
 
             with transaction.atomic():
-                utils.do_transaction(transaction_step_list)
+                do_transaction(transaction_step_list)
 
             send_notifications(new_transaction, origin_account.email, dest_account.email)
 
@@ -62,7 +60,7 @@ def make_payment(request):
     else:
         form = PaymentForm
 
-    return render(request, 'payments/pay.html', {'form':form})
+    return render(request, 'payments/payment_form.html', {'form':form})
 
 
 def send_notifications(transaction_details, sender_email, recipient_email):
@@ -74,3 +72,8 @@ def send_notifications(transaction_details, sender_email, recipient_email):
 
     send_mail('Your transfer was successful!', mail_msg, 'fundbeam@test.com', [sender_email, recipient_email],
               fail_silently=False)
+
+
+def do_transaction(instances_to_save):
+    for inst in instances_to_save:
+        inst.save()

@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'payments',
-    'common.utils'
 ]
 
 MIDDLEWARE = [
@@ -123,5 +122,5 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+# Use the Django Email backend rather than an SMPT server
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -11,7 +11,7 @@
 </ul>
 {% endif %}
 
-<div class="table">
+<div class="table account-table">
     <div class="table-row">
         <div class="table-col">Account Number</div>
         <div class="table-col">Account Holder</div>
@@ -22,7 +22,7 @@
     <div class="table-row">
         <div class="table-col">{{ account.account_number }}</div>
         <div class="table-col">{{ account.first_name }} {{ account.last_name }}</div>
-        <div class="table-col">{{ account.balance }}</div>
+        <div class="table-col">&pound;{{ account.balance }}</div>
         <div class="table-col">
             <button class="view-transactions" data-account_number="{{ account.account_number }}" type="button">View</button>
         </div>
