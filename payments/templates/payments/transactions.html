@@ -1,0 +1,19 @@
+
+{% for transaction in transactions %}
+
+<div class="table">
+    <div class="table-row">
+        <div class="table-col">Transaction Date</div>
+        <div class="table-col">From Account</div>
+        <div class="table-col">To Account</div>
+        <div class="table-col">Amount</div>
+    </div>
+    <div class="table-row">
+        <div class="table-col">{{ transaction.transaction_date}}</div>
+        <div class="table-col">{{ transaction.origin_account.first_name }} {{ transaction.origin_account.last_name }}</div>
+        <div class="table-col">{{ transaction.destination_account.first_name }} {{ transaction.destination_account.last_name }}</div>
+        <div class="table-col">{{ transaction.amount }}</div>
+    </div>
+</div>
+
+{% endfor %}

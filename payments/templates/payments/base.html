@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fund Beam</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/fundbeam.css' %}">
+    <script src="{% static 'scripts/fundbeam.js' %}"></script>
+</head>
+
+<body>
+
+<div class="header">
+    <h1><a href="/">Fund Beam</a></h1>
+</div>
+<div class="navigation">
+    <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pay">Pay</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    {% block content %}
+    {% endblock%}
+</div>
+
+</body>
+</html>
