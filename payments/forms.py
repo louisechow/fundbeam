@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import forms
 
 from .models import Account
@@ -6,7 +7,7 @@ from .models import Account
 class PaymentForm(forms.Form):
     origin_account = forms.ChoiceField(choices=[])
     dest_account = forms.ChoiceField(choices=[])
-    amount = forms.DecimalField(label="Amount(u'\u00a3')",max_digits=10)
+    amount = forms.DecimalField(label="Amount({})".format('£'), max_digits=10)
 
     def __init__(self, *args, **kwargs):
         super(PaymentForm, self).__init__(*args, **kwargs)
