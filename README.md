@@ -5,9 +5,9 @@ FundBeam allows you to quickly send payments to your friends. Try it out!
 
 ## Prerequisites
 FundBeam is a Django project. You will need to have the following installed on your computer before you start
-- Python 3
-- Pip
-- VirtualEnv
+- Python 3 (https://www.python.org/downloads/)
+- Pip (https://pip.pypa.io/en/stable/installing/)
+- VirtualEnv (http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 
 ## Installation
 - Get the FundBeam project from GitHub
